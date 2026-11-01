@@ -17,6 +17,7 @@ qt_add_qml_module(appRambler
         qml/Main.qml
         qml/Theme.qml
         qml/Sidebar.qml
+        qml/EntryCard.qml
     RESOURCES
         assets/book-open.svg
     )
