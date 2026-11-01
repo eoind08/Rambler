@@ -7,12 +7,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 qt_standard_project_setup(REQUIRES 6.8)
 
+set_source_files_properties(qml/Theme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 qt_add_executable(appRambler src/main.cpp)
 
 qt_add_qml_module(appRambler
     URI Rambler
     VERSION 1.0
-    QML_FILES qml/Main.qml
+    QML_FILES 
+        qml/Main.qml
+        qml/Theme.qml
+        qml/Sidebar.qml
 )
 
 target_link_libraries(appRambler PRIVATE Qt6::Quick)
