@@ -17,6 +17,8 @@ qt_add_qml_module(appRambler
         qml/Main.qml
         qml/Theme.qml
         qml/Sidebar.qml
-)
+    RESOURCES
+        assets/book-open.svg
+    )
 
 target_link_libraries(appRambler PRIVATE Qt6::Quick)
