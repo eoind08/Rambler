@@ -20,8 +20,16 @@ qt_add_qml_module(appRambler
         qml/Sidebar.qml
         qml/EntryCard.qml
         qml/Composer.qml
+    SOURCES
+        src/bookmodel.h
+        src/bookmodel.cpp
+        src/entrymodel.h 
+        src/entrymodel.cpp
     RESOURCES
         assets/book-open.svg
+        assets/link.svg
+        assets/list.svg
     )
 
+target_include_directories(appRambler PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_link_libraries(appRambler PRIVATE Qt6::Quick Qt6::QuickControls2)

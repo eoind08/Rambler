@@ -12,6 +12,7 @@ QtObject {
   readonly property color entryText: "#e7e5ed"
   readonly property color editorText: "#b4b2c4"
   readonly property color bookText: "#b4b2c4"
+  readonly property color error: "#e5848a"
   readonly property int radius: 14
   readonly property string serif: "Georgia"
   readonly property int timeColWidth: 130

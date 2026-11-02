@@ -8,19 +8,35 @@ ApplicationWindow {
     visible: true
     title: "Rambler"
     color: Theme.bg
-    ListModel {
-        id: entries
-        ListElement { timestamp: "30 Oct 20:45"; body: "Hello **World**!" }
-        ListElement { timestamp: "31 Oct 13:17"; body: "Here's a second one" }
-        ListElement { timestamp: "31 Oct 14:32"; body: "And a third for good _Luck_" }
+    BookModel { id: books }
+    EntryModel { id: entries }
+
+    function openBook(row) {
+        sidebar.currentIndex = row
+        entries.bookPath = books.pathAt(row)
+        Qt.callLater(timeline.positionViewAtEnd)
+    }
+
+    Component.onCompleted: openBook(0)
+
+    Connections {
+        target: books
+        function oneErrorOccurred(message) { sidebar.errorText = message }
     }
     RowLayout {
         anchors.fill: parent
         spacing: 0
         Sidebar {
+            id: sidebar
+            model: books
             Layout.preferredWidth: 260
             Layout.fillHeight: true
-            color: Theme.sidebarBg
+
+            onBookClicked: (row) => openBook(row)
+            onCreateRequested: (name) => {
+                const row = books.createBook(name)
+                if (row >= 0) openBook(row)
+            }
         }
 
         ColumnLayout {
@@ -51,11 +67,8 @@ ApplicationWindow {
                 Layout.bottomMargin: 24
 
                 onSubmitted: (text) => {
-                    entries.append({
-                        timestamp: Qt.formatDateTime(new Date(), "d MMM HH:mm"),
-                        body: text
-                    })
-                    Qt.callLater(timeline.positionViewAtEnd)
+                    if (entries.addEntry(text))
+                        Qt.callLater(timeline.positionViewAtEnd)
                 }
             }
         }

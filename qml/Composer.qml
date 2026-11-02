@@ -53,6 +53,7 @@ Rectangle {
     component ToolBtn: Item {
         id: btn
         property string label
+        property url iconSource
         property bool bold: false
         property bool italic: false
         signal clicked()
@@ -71,6 +72,14 @@ Rectangle {
             font.pixelSize: 16
             font.bold: btn.bold
             font.italic: btn.italic
+        }
+        Image {
+        anchors.centerIn: parent
+        visible: btn.iconSource != ""
+        source: btn.iconSource
+        width: 18
+        height: 18
+        sourceSize: Qt.size(36, 36)
         }
         HoverHandler { id: hover }
         TapHandler { onTapped: btn.clicked() }
@@ -109,8 +118,8 @@ Rectangle {
             spacing: 2
             ToolBtn { label: "B"; bold: true;   onClicked: root.wrap("**", "**") }
             ToolBtn { label: "I"; italic: true; onClicked: root.wrap("*", "*") }
-            ToolBtn { label: "Link";            onClicked: root.link(); implicitWidth: 44 }
-            ToolBtn { label: "List";            onClicked: root.prefixLine("- "); implicitWidth: 44 }
+            ToolBtn { iconSource: "qrc:/qt/qml/Rambler/assets/link.svg"; onClicked: root.link() }
+            ToolBtn { iconSource: "qrc:/qt/qml/Rambler/assets/list.svg"; onClicked: root.prefixLine("- ") }
             Item { Layout.fillWidth: true }
             Rectangle {
                 implicitWidth: hint.implicitWidth + 24
