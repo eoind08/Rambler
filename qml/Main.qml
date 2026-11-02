@@ -87,7 +87,7 @@ ApplicationWindow {
             }
             Composer {
                 Layout.fillWidth: true
-                Layout.leftMargin: Theme.cardLeft        // lines up with the cards
+                Layout.leftMargin: Theme.cardLeft
                 Layout.rightMargin: Theme.pageMargin
                 Layout.topMargin: 8
                 Layout.bottomMargin: 24
