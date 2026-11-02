@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick)
+find_package(Qt6 REQUIRED COMPONENTS QUICK QuickControls2)
 qt_standard_project_setup(REQUIRES 6.8)
 
 set_source_files_properties(qml/Theme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
@@ -18,8 +19,9 @@ qt_add_qml_module(appRambler
         qml/Theme.qml
         qml/Sidebar.qml
         qml/EntryCard.qml
+        qml/Composer.qml
     RESOURCES
         assets/book-open.svg
     )
 
-target_link_libraries(appRambler PRIVATE Qt6::Quick)
+target_link_libraries(appRambler PRIVATE Qt6::Quick Qt6::QuickControls2)
