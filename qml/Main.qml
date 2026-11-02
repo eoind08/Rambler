@@ -20,21 +20,43 @@ ApplicationWindow {
         Sidebar {
             Layout.preferredWidth: 260
             Layout.fillHeight: true
-            color: Theme.surface
+            color: Theme.sidebarBg
         }
-        ListView {
-            id: timeline
+
+        ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            topMargin: 24
-            bottomMargin: 24
-            clip: true
-            model: entries
-            delegate: EntryCard {
-                required property int index
-                width: ListView.view.width
-                isFirst: index === 0
-                isLast: index === ListView.view.count - 1
+            spacing: 0
+
+            ListView {
+                id: timeline
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                topMargin: 24
+                bottomMargin: 24
+                clip: true
+                model: entries
+                delegate: EntryCard {
+                    required property int index
+                    width: ListView.view.width
+                    isFirst: index === 0
+                    isLast: index === ListView.view.count - 1
+                }
+            }
+            Composer {
+                Layout.fillWidth: true
+                Layout.leftMargin: Theme.cardLeft        // lines up with the cards
+                Layout.rightMargin: Theme.pageMargin
+                Layout.topMargin: 8
+                Layout.bottomMargin: 24
+
+                onSubmitted: (text) => {
+                    entries.append({
+                        timestamp: Qt.formatDateTime(new Date(), "d MMM HH:mm"),
+                        body: text
+                    })
+                    Qt.callLater(timeline.positionViewAtEnd)
+                }
             }
         }
     }

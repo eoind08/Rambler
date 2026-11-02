@@ -3,7 +3,7 @@ import QtQuick.Layouts
 
 Rectangle {
     id: root
-    color: Theme.surface
+    color: Theme.sidebarBg
     property int currentIndex: 0
     property var books: ["Personal", "University", "Ideas", "Archive"]
     signal addClicked()
@@ -17,7 +17,7 @@ Rectangle {
             Layout.leftMargin: 8
             Text {
                 text: "Books"
-                color: Theme.textMain
+                color: Theme.bookText
                 font.family: Theme.serif
                 font.pixelSize: 16
                 Layout.fillWidth: true
@@ -28,7 +28,7 @@ Rectangle {
                 Text {
                     anchors.centerIn: parent
                     text: "+"
-                    color: Theme.textDim
+                    color: Theme.bookText
                     font.pixelSize: 24
                 }
                 TapHandler { onTapped: root.addClicked() }
@@ -46,8 +46,8 @@ Rectangle {
                 width: ListView.view.width
                 height: 44
                 radius: 10
-                color: index === root.currentIndex ? Theme.selected
-                     : hover.hovered ? Theme.hover
+                color: index === root.currentIndex ? Theme.bookSelected
+                     : hover.hovered ? Theme.bookHover
                      : "transparent"
                 Image {
                   id: icon
@@ -62,7 +62,7 @@ Rectangle {
                     anchors.left: icon.right
                     anchors.leftMargin: 12
                     text: modelData
-                    color: Theme.textMain
+                    color: Theme.bookText
                     font.family: Theme.serif
                     font.pixelSize: 16
                 }

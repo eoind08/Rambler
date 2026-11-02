@@ -13,7 +13,7 @@ Item {
         x: Theme.lineX - width / 2
         y: root.isFirst ? root.dotCenterY : 0
         height: (root.isLast ? root.dotCenterY : root.height) - y
-        color: Theme.line
+        color: Theme.timeline
     }
     Rectangle {
         width: Theme.dotSize
@@ -21,7 +21,7 @@ Item {
         radius: width / 2
         x: Theme.lineX - width / 2
         y: root.dotCenterY - height / 2
-        color: Theme.accent
+        color: Theme.timeline
     }
     Text {
         x: 0
@@ -29,7 +29,7 @@ Item {
         y: root.dotCenterY - height / 2
         horizontalAlignment: Text.AlignRight
         text: root.timestamp
-        color: Theme.textDim
+        color: Theme.timeline
         font.family: Theme.serif
         font.pixelSize: 15
     }
@@ -39,7 +39,7 @@ Item {
         width: root.width - Theme.cardLeft - Theme.pageMargin
         height: bodyText.implicitHeight + 2 * Theme.cardPadding
         radius: Theme.radius
-        color: Theme.surface
+        color: Theme.entryBg
         Text {
             id: bodyText
             anchors.fill: parent
@@ -47,7 +47,7 @@ Item {
             text: root.body
             textFormat: Text.MarkdownText
             wrapMode: Text.Wrap
-            color: Theme.textMain
+            color: Theme.entryText
             font.family: Theme.serif
             font.pixelSize: 16
         }
