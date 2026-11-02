@@ -43,20 +43,46 @@ ApplicationWindow {
             Layout.fillWidth: true
             Layout.fillHeight: true
             spacing: 0
-
-            ListView {
-                id: timeline
+            Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                topMargin: 24
-                bottomMargin: 24
-                clip: true
-                model: entries
-                delegate: EntryCard {
-                    required property int index
-                    width: ListView.view.width
-                    isFirst: index === 0
-                    isLast: index === ListView.view.count - 1
+                ListView {
+                    id: timeline
+                    anchors.fill: parent
+                    topMargin: 24
+                    bottomMargin: 24
+                    clip: true
+                    model: entries
+                    delegate: EntryCard {
+                        required property int index
+                        width: ListView.view.width
+                        isFirst: index === 0
+                        isLast: index === ListView.view.count - 1
+                    }
+                }
+
+                Item {
+                    id: emptyState
+                    anchors.fill: timeline
+                    visible: timeline.count === 0 ? 1: 0
+                    ColumnLayout {
+                        anchors.centerIn: parent
+                        spacing: 30
+                        Text {
+                            text: "What's on your mind?"
+                            font.family: Theme.serif
+                            font.pixelSize: 32
+                            color: Theme.editorText
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                        Image {
+                            source: "qrc:/qt/qml/Rambler/assets/arrow-down.svg"
+                            Layout.preferredWidth: 28
+                            Layout.preferredHeight: 28
+                            sourceSize: Qt.size(56,56)
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                    }
                 }
             }
             Composer {

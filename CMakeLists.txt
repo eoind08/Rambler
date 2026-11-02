@@ -29,6 +29,7 @@ qt_add_qml_module(appRambler
         assets/book-open.svg
         assets/link.svg
         assets/list.svg
+        assets/arrow-down.svg
     )
 
 target_include_directories(appRambler PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
