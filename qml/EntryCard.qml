@@ -44,7 +44,7 @@ Item {
             id: bodyText
             anchors.fill: parent
             anchors.margins: Theme.cardPadding
-            text: root.body
+            text: root.body.split(/\r?\n/).map(line => line === "" ? "&nbsp;" : line).join("  \n")
             textFormat: Text.MarkdownText
             wrapMode: Text.Wrap
             color: Theme.entryText
