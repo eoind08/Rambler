@@ -6,6 +6,8 @@ ApplicationWindow {
     id: window
     width: 1000
     height: 640
+    minimumHeight: 520
+    minimumWidth: 820
     visible: true
     title: "Rambler"
     color: Theme.bg
