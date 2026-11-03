@@ -3,6 +3,8 @@
 
 The local journalling app
 
+**Currently Windows Only - other platform support depends on demand**
+
 Rambler is a simple, local-first journalling app built around the idea of capturing your thoughts as they happen. Rather than treating a journal as a collection of polished entries, Rambler lets you see how your thinking develops over time.
 
 ## Download
