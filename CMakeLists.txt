@@ -34,6 +34,7 @@ qt_add_qml_module(appRambler
         assets/arrow-down.svg
         assets/send-horizontal.svg
         assets/ramblerlogo.png
+        assets/folder.svg
     )
 
 target_include_directories(appRambler PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)

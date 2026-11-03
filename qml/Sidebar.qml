@@ -189,5 +189,30 @@ Rectangle {
                 }
             }
         }
+        Item {
+            id: folder
+            Layout.alignment: Qt.AlignBottom
+            implicitWidth: 34
+            implicitHeight: 32
+            Rectangle {
+                anchors.fill: parent
+                radius: 8
+                color: hover.hovered ? Theme.bookHover : "transparent"
+            }
+            Image {
+                anchors.centerIn: parent
+                source: "qrc:/qt/qml/Rambler/assets/folder.svg"
+                width: 22
+                height: 22
+                sourceSize: Qt.size(44, 44)
+            }
+            HoverHandler {
+                id: hover
+            }
+            TapHandler {
+                onTapped: Qt.openUrlExternally("file:///" + books.rootPath)
+            }
+        }
     }
+
 }
