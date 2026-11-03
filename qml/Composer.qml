@@ -134,7 +134,7 @@ Rectangle {
                     font.pixelSize: 12
                 }
             }
-            ToolBtn { label: "Send"; implicitWidth: 48; onClicked: root.submit() }
+            ToolBtn { iconSource: "qrc:/qt/qml/Rambler/assets/send-horizontal.svg"; onClicked: root.submit() }
         }
     }
 }

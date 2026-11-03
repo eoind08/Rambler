@@ -9,7 +9,7 @@ find_package(Qt6 REQUIRED COMPONENTS QUICK QuickControls2)
 qt_standard_project_setup(REQUIRES 6.8)
 
 set_source_files_properties(qml/Theme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
-qt_add_executable(appRambler src/main.cpp)
+qt_add_executable(appRambler src/main.cpp app.rc)
 
 qt_add_qml_module(appRambler
     URI Rambler
@@ -30,6 +30,8 @@ qt_add_qml_module(appRambler
         assets/link.svg
         assets/list.svg
         assets/arrow-down.svg
+        assets/send-horizontal.svg
+        assets/ramblerlogo.png
     )
 
 target_include_directories(appRambler PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
