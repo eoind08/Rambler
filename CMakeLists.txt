@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 project(Rambler VERSION 0.1 LANGUAGES CXX)
 
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -10,6 +11,9 @@ qt_standard_project_setup(REQUIRES 6.8)
 
 set_source_files_properties(qml/Theme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 qt_add_executable(appRambler src/main.cpp app.rc)
+set_target_properties(appRambler PROPERTIES
+    WIN32_EXECUTABLE TRUE
+    OUTPUT_NAME Rambler)
 
 qt_add_qml_module(appRambler
     URI Rambler
