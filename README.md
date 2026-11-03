@@ -1,5 +1,6 @@
 # Rambler
-https://img.shields.io/github/downloads/eoind08/rambler/total?style=for-the-badge&logo=github
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/eoind08/rambler/total?style=for-the-badge&logo=github)
+
 
 The local journalling app
 
