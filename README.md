@@ -1,6 +1,5 @@
 # Rambler - A Journal for your train of thought
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/eoind08/rambler/total?style=for-the-badge&logo=github)
-
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/eoind08/rambler/total?style=for-the-badge&logo=github&color=92d984)
 
 **Currently Windows Only - other platform support depends on demand**
 
