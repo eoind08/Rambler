@@ -20,6 +20,8 @@ qt_add_qml_module(appRambler
         qml/Sidebar.qml
         qml/EntryCard.qml
         qml/Composer.qml
+        qml/ConfirmDialog.qml
+        qml/PlusButton.qml
     SOURCES
         src/bookmodel.h
         src/bookmodel.cpp

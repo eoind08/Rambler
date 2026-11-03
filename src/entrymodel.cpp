@@ -6,7 +6,6 @@
 #include <algorithm>
 
 namespace {
-// 2026-11-02T10-17-33  (19 chars; dashes because ':' is illegal in Windows filenames)
 const QString kStamp = QStringLiteral("yyyy-MM-dd'T'HH-mm-ss");
 }
 EntryModel::EntryModel(QObject *parent)
